@@ -6,7 +6,7 @@
         <h2 id="bingo-number" class="mt-5">{{ bingoNumber }}</h2>
       </div>
     </div>
-    <button
+    <button id="generate-bingo-button"
       @click="newBingoNumber"
     >
     New number!</button>
