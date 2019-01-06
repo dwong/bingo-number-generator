@@ -33,7 +33,7 @@ export default {
       this.bingoNumber = this.generateBingoNumber()
     },
     generateBingoNumber () {
-      const column = this.grid[Math.floor(Math.random() * (this.grid.length - 1))]
+      const column = this.grid[this.getRandomIntInclusive(0, this.grid.length - 1)]
       const number = this.getRandomIntInclusive(column.min, column.max)
       return `${column.header} ${number}`
     },
