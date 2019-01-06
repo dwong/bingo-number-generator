@@ -54,7 +54,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Slab', Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -64,4 +64,5 @@ export default {
 </style>
 <style>
   @import 'bootstrap/dist/css/bootstrap.min.css';
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 </style>
