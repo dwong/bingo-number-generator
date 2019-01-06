@@ -3,13 +3,17 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 id="bingo-number" class="mt-5">{{ bingoNumber }}</h2>
+        <h2
+          id="bingo-number"
+          class="mt-5">{{ bingoNumber }}</h2>
       </div>
     </div>
-    <button id="generate-bingo-button"
+    <button
+      id="generate-bingo-button"
       @click="newBingoNumber"
     >
-    New number!</button>
+      New number!
+    </button>
   </div>
 </template>
 
