@@ -35,6 +35,7 @@ export default {
   methods: {
     newBingoNumber () {
       this.bingoNumber = this.generateBingoNumber()
+      this.$emit('bingo-number-generated', this.bingoNumber.replace(/\s+/g, ''))
     },
     generateBingoNumber () {
       const column = this.grid[this.getRandomIntInclusive(0, this.grid.length - 1)]
