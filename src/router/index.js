@@ -16,11 +16,6 @@ export default new Router({
       path: '/validate',
       name: 'ValidateNumber',
       component: NumberValidator
-      /*,
-      props: {
-        bingoNumbersParam: bingoNumbe
-      }
-      */
     }
   ]
 })
