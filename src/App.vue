@@ -1,44 +1,25 @@
 <template>
   <div id="app">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-      <div class="container">
-        <a
-          class="navbar-brand"
-          href="#">Bingo Number Generator</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"/>
-        </button>
-        <div
-          id="navbarResponsive"
-          class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <router-link
-                :to="{ name: 'BingoNumbers' }"
-                class="nav-link"
-                active-class="active">
-                Generate
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link
-                :to="{ name: 'ValidateNumber' }"
-                class="nav-link"
-                active-class="active">
-                Validate
-              </router-link>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <nav class="nav flex-column static-top">
+      <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item w-25 border-left border-top border-light rounded-left">
+          <router-link
+            :to="{ name: 'BingoNumbers' }"
+            class="nav-link"
+            active-class="active">
+            Generate
+          </router-link>
+        </li>
+        <li class="nav-item w-25 mr-2">
+          <router-link
+            :to="{ name: 'ValidateNumber' }"
+            class="nav-link"
+            active-class="active">
+            Validate
+          </router-link>
+        </li>
+      </ul>
     </nav>
 
     <router-view
@@ -71,10 +52,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-//  margin-top: 60px;
 }
 </style>
 <style>
-  @import 'bootstrap/dist/css/bootstrap.min.css';
+  @import 'bootstrap-material-design/dist/css/bootstrap-material-design.min.css';
   @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 </style>
