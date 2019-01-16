@@ -10,9 +10,10 @@
     </div>
     <button
       id="generate-bingo-button"
+      class="btn btn-primary btn-lg btn-outline-primary mt-5"
       @click="newBingoNumber"
     >
-      New number!
+      Generate Next
     </button>
   </div>
 </template>
@@ -22,7 +23,7 @@ export default {
   name: 'BingoNumbers',
   data () {
     return {
-      bingoNumber: 'Get Started',
+      bingoNumber: '--',
       grid: [
         { header: 'B', min: 1, max: 15 },
         { header: 'I', min: 16, max: 30 },
@@ -52,3 +53,9 @@ export default {
   }
 }
 </script>
+
+<style>
+#bingo-number {
+  font-size: 5rem;
+}
+</style>
