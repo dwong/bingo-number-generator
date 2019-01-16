@@ -1,19 +1,18 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <input
-          id="bingo-number"
-          v-model="bingoNumberToValidate"
-          placeholder="Bingo Value To Validate"
-          type="text"
-          class="mt-5">
-          <!--
-        <button
-          @click="validateNumber">
-          Validate
-        </button>
-      -->
+      <div class="col-5 col-sm-6 col-md-3 mx-auto">
+        <form>
+          <div class="form-group">
+            <label for="bingo-number">Bingo Value To Validate</label>
+            <input
+              id="bingo-number"
+              v-model="bingoNumberToValidate"
+              placeholder="B1"
+              type="text"
+              class="form-control mt-5">
+          </div>
+        </form>
       </div>
     </div>
     <div class="row">
@@ -105,3 +104,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+#bingo-number {
+  font-size: 4rem;
+  text-align: center;
+  }
+</style>

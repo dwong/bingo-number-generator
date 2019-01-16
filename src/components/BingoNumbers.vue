@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #bingo-number {
   font-size: 5rem;
 }
