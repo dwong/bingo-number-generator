@@ -16,8 +16,10 @@
       </div>
     </div>
     <div class="row">
-      <span v-show="validNumber">Valid</span>
-      <span v-show="invalidNumber">Invalid</span>
+      <div class="col-8 mx-auto">
+        <span v-show="validNumber">Valid</span>
+        <span v-show="invalidNumber">Invalid</span>
+      </div>
     </div>
   </div>
 </template>
@@ -37,13 +39,18 @@ export default {
       default () {
         return []
       }
+    },
+    bingoRegex: {
+      type: RegExp,
+      default () {
+        return /^(\D)\s*(\d+)?$/i
+      }
     }
   },
   data () {
     return {
       bingoNumberToValidate: '',
-      validLetters: ['B', 'I', 'N', 'G', 'O'],
-      bingoNumberRegex: /^(\D)\s*(\d+)?$/i
+      validLetters: ['B', 'I', 'N', 'G', 'O']
     }
   },
   computed: {
@@ -62,7 +69,7 @@ export default {
       return this.valid === false
     },
     regexResult () {
-      return this.bingoNumberRegex.exec(this.bingoNumberToValidate)
+      return this.bingoRegex.exec(this.bingoNumberToValidate)
     },
     letterFromBingoNumber () {
       const result = this.regexResult

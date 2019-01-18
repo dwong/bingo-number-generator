@@ -24,6 +24,7 @@
 
     <router-view
       :bingo-numbers="bingoNumbers"
+      :bingo-regex="bingoRegex"
       @bingo-number-generated="(bingoNumber) => numberGenerated(bingoNumber)"
     />
   </div>
@@ -34,7 +35,8 @@ export default {
   name: 'App',
   data () {
     return {
-      bingoNumbers: []
+      bingoNumbers: [],
+      bingoRegex: /^(\D)\s*(\d+)?$/i
     }
   },
   methods: {

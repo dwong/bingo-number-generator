@@ -27,4 +27,11 @@ describe('BingoNumbers.vue', () => {
     expect(bingoNumber.length).to.be.lessThan(5)
     expect(vm.$el.querySelector('#bingo-number').textContent).to.equal(bingoNumber)
   })
+
+  it('should display the last bingo number', () => {
+    const Constructor = Vue.extend(BingoNumbers)
+    const vm = new Constructor().$mount()
+    vm.bingoNumbers = ['B1']
+    expect(vm.bingoNumber).to.be.equal('B 1')
+  })
 })
