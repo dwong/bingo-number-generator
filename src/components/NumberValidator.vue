@@ -4,21 +4,27 @@
       <div class="col-5 col-sm-6 col-md-3 mx-auto">
         <form>
           <div class="form-group">
-            <label for="bingo-number">Bingo Value To Validate</label>
+            <label for="bingo-number">Bingo Value</label>
             <input
               id="bingo-number"
               v-model="bingoNumberToValidate"
               placeholder="B1"
               type="text"
-              class="form-control mt-5">
+              class="form-control">
           </div>
         </form>
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-8 mx-auto">
-        <span v-show="validNumber">Valid</span>
-        <span v-show="invalidNumber">Invalid</span>
+        <i
+          v-show="validNumber"
+          class="material-icons md-48 green"
+        >thumb_up</i>
+        <i
+          v-show="invalidNumber"
+          class="material-icons md-48 red"
+        >thumb_down</i>
       </div>
     </div>
   </div>
@@ -115,5 +121,14 @@ export default {
 #bingo-number {
   font-size: 4rem;
   text-align: center;
-  }
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+.material-icons.green {
+  color: #2f9914;
+}
+.material-icons.red {
+  color: #d13636;
+}
 </style>

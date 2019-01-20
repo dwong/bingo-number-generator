@@ -59,4 +59,5 @@ export default {
 <style>
   @import 'bootstrap-material-design/dist/css/bootstrap-material-design.min.css';
   @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 </style>
