@@ -8,9 +8,11 @@
             <input
               id="bingo-number"
               v-model="bingoNumberToValidate"
+              class="form-control"
               placeholder="B1"
               type="text"
-              class="form-control">
+              @keyup.esc.prevent="clearValue"
+            >
           </div>
         </form>
       </div>
@@ -113,6 +115,11 @@ export default {
       return letter != null &&
         number != null &&
         this.bingoNumbers.indexOf(`${letter}${number}`) >= 0
+    }
+  },
+  methods: {
+    clearValue () {
+      this.bingoNumberToValidate = ''
     }
   }
 }

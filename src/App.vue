@@ -27,6 +27,16 @@
       :bingo-regex="bingoRegex"
       @bingo-number-generated="(bingoNumber) => numberGenerated(bingoNumber)"
     />
+    <div class="row fixed-bottom mb-5">
+      <div class="col-sm-6">
+        <button
+          v-show="haveBingoNumbers"
+          class="btn btn-lg btn-outline-danger"
+          @click="clearValues"
+        ><span>New Round</span>
+        <i class="material-icons md-18">replay</i></button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,9 +49,17 @@ export default {
       bingoRegex: /^(\D)\s*(\d+)?$/i
     }
   },
+  computed: {
+    haveBingoNumbers: function () {
+      return this.bingoNumbers.length > 0
+    }
+  },
   methods: {
     numberGenerated: function (bingoNumber) {
       this.bingoNumbers.push(bingoNumber)
+    },
+    clearValues: function () {
+      this.bingoNumbers = []
     }
   }
 }
@@ -54,6 +72,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.material-icons.md-18 {
+  font-size: 18px;
 }
 </style>
 <style>
