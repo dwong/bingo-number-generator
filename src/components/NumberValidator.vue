@@ -10,8 +10,10 @@
               v-model="bingoNumberToValidate"
               class="form-control"
               placeholder="B1"
-              type="text"
+              type="search"
+              autocomplete="off"
               @keyup.esc.prevent="clearValue"
+              @keyup.enter.prevent="clearValue"
             >
           </div>
         </form>
@@ -137,5 +139,8 @@ export default {
 }
 .material-icons.red {
   color: #d13636;
+}
+input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
 }
 </style>
