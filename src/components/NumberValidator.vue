@@ -4,7 +4,9 @@
       <div class="col-5 col-sm-6 col-md-3 mx-auto">
         <form>
           <div class="form-group">
-            <label for="bingo-number" class="sr-only">Bingo Value</label>
+            <label
+              for="bingo-number"
+              class="sr-only">Bingo Value</label>
             <div class="btn-group">
               <input
                 id="bingo-number"
@@ -17,9 +19,9 @@
                 @keyup.enter.prevent="clearValue('enter')"
               >
               <button
+                v-show="clearable"
                 id="clear-btn"
                 type="button"
-                v-show="clearable"
                 @click.prevent="clearValue('btn')"
               ><i class="material-icons">clear</i></button>
             </div>
