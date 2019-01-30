@@ -4,17 +4,25 @@
       <div class="col-5 col-sm-6 col-md-3 mx-auto">
         <form>
           <div class="form-group">
-            <label for="bingo-number">Bingo Value</label>
-            <input
-              id="bingo-number"
-              v-model="bingoNumberToValidate"
-              class="form-control"
-              placeholder="B1"
-              type="search"
-              autocomplete="off"
-              @keyup.esc.prevent="clearValue('esc')"
-              @keyup.enter.prevent="clearValue('enter')"
-            >
+            <label for="bingo-number" class="sr-only">Bingo Value</label>
+            <div class="btn-group">
+              <input
+                id="bingo-number"
+                v-model="bingoNumberToValidate"
+                class="form-control"
+                placeholder="B1"
+                type="text"
+                autocomplete="off"
+                @keyup.esc.prevent="clearValue('esc')"
+                @keyup.enter.prevent="clearValue('enter')"
+              >
+              <button
+                id="clear-btn"
+                type="button"
+                v-show="clearable"
+                @click.prevent="clearValue('btn')"
+              ><i class="material-icons">clear</i></button>
+            </div>
           </div>
         </form>
       </div>
@@ -64,6 +72,9 @@ export default {
     }
   },
   computed: {
+    clearable () {
+      return this.bingoNumberToValidate.length > 0
+    },
     valid () {
       if (this.numberFromBingoNumber === null ||
         this.letterFromBingoNumber === null) {
@@ -144,6 +155,9 @@ export default {
         case 'enter':
           intVal = 2
           break
+        case 'btn':
+          intVal = 3
+          break
       }
       this.$ga.event('User Action', 'Input', 'Clear', intVal)
     }
@@ -154,6 +168,17 @@ export default {
 #bingo-number {
   font-size: 4rem;
   text-align: center;
+}
+#clear-btn {
+  position: absolute;
+  right: -40px;
+  top: 0;
+  bottom: 0;
+  height: 24px;
+  margin: auto;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ccc;
 }
 .material-icons.md-48 {
   font-size: 48px;
