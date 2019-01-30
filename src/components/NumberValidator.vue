@@ -12,8 +12,8 @@
               placeholder="B1"
               type="search"
               autocomplete="off"
-              @keyup.esc.prevent="clearValue"
-              @keyup.enter.prevent="clearValue"
+              @keyup.esc.prevent="clearValue('esc')"
+              @keyup.enter.prevent="clearValue('enter')"
             >
           </div>
         </form>
@@ -73,10 +73,18 @@ export default {
       }
     },
     validNumber () {
-      return this.valid === true
+      let isValid = this.valid === true
+      if (isValid) {
+        this.trackValidate(true)
+      }
+      return isValid
     },
     invalidNumber () {
-      return this.valid === false
+      let isInvalid = this.valid === false
+      if (isInvalid) {
+        this.trackValidate(false)
+      }
+      return isInvalid
     },
     regexResult () {
       return this.bingoRegex.exec(this.bingoNumberToValidate)
@@ -120,8 +128,24 @@ export default {
     }
   },
   methods: {
-    clearValue () {
+    clearValue (method) {
       this.bingoNumberToValidate = ''
+      this.trackClear(method)
+    },
+    trackValidate (success) {
+      this.$ga.event('User Action', 'Input', 'Validate', success ? 1 : 0)
+    },
+    trackClear (method) {
+      let intVal = -1
+      switch (method) {
+        case 'esc':
+          intVal = 1
+          break
+        case 'enter':
+          intVal = 2
+          break
+      }
+      this.$ga.event('User Action', 'Input', 'Clear', intVal)
     }
   }
 }

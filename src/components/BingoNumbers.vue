@@ -9,6 +9,7 @@
       </div>
     </div>
     <button
+      v-ga="'trackGenerate'"
       id="generate-bingo-button"
       class="btn btn-primary btn-lg btn-outline-primary mt-5"
       @click="newBingoNumber"

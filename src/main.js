@@ -4,6 +4,23 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'bootstrap'
+import VueAnalytics from 'vue-analytics'
+
+Vue.use(VueAnalytics, {
+  id: 'UA-132460060-1',
+  router,
+  debug: {
+    enabled: process.env.NODE_ENV !== 'production'
+  },
+  commands: {
+    trackGenerate () {
+      this.$ga.event('User Action', 'Click', 'Generate', 1)
+    },
+    trackNewSession () {
+      this.$ga.event('User Action', 'Click', 'New Session', 1)
+    }
+  }
+})
 
 Vue.config.productionTip = false
 

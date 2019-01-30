@@ -30,6 +30,7 @@
     <div class="row fixed-bottom mb-5">
       <div class="col-sm-6 mx-auto">
         <button
+          v-ga="'trackNewSession'"
           v-show="haveBingoNumbers"
           class="btn btn-lg btn-outline-danger"
           @click="clearValues"
