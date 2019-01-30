@@ -146,7 +146,9 @@ export default {
       this.trackClear(method)
     },
     trackValidate (success) {
-      this.$ga.event('User Action', 'Input', 'Validate', success ? 1 : 0)
+      if (this.$ga) {
+        this.$ga.event('User Action', 'Input', 'Validate', success ? 1 : 0)
+      }
     },
     trackClear (method) {
       let intVal = -1
@@ -161,7 +163,9 @@ export default {
           intVal = 3
           break
       }
-      this.$ga.event('User Action', 'Input', 'Clear', intVal)
+      if (this.$ga) {
+        this.$ga.event('User Action', 'Input', 'Clear', intVal)
+      }
     }
   }
 }
