@@ -1,7 +1,17 @@
 <template>
   <div class="container mt-5">
-    <div class="row">
-      <div class="col-5 col-sm-6 col-md-3 mx-auto">
+    <div class="row justify-content-start">
+      <div class="col-3 my-auto">
+        <i
+          v-show="validNumber"
+          class="material-icons md-48 green m-auto"
+        >thumb_up</i>
+        <i
+          v-show="invalidNumber"
+          class="material-icons md-48 red m-auto"
+        >thumb_down</i>
+      </div>
+      <div class="col-6 col-sm-8 col-md-5">
         <form>
           <div class="form-group">
             <label
@@ -27,18 +37,6 @@
             </div>
           </div>
         </form>
-      </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-8 mx-auto">
-        <i
-          v-show="validNumber"
-          class="material-icons md-48 green"
-        >thumb_up</i>
-        <i
-          v-show="invalidNumber"
-          class="material-icons md-48 red"
-        >thumb_down</i>
       </div>
     </div>
   </div>
