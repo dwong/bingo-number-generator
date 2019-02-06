@@ -179,11 +179,13 @@ export default {
   right: -40px;
   top: 0;
   bottom: 0;
-  height: 24px;
+  height: 28px;
   margin: auto;
   font-size: 14px;
   cursor: pointer;
   color: #ccc;
+  background-color: transparent;
+  border: none;
 }
 .material-icons.md-48 {
   font-size: 48px;
