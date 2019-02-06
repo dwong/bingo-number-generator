@@ -20,11 +20,12 @@
             <div class="btn-group">
               <input
                 id="bingo-number"
-                v-model="bingoNumberToValidate"
+                :value="bingoNumberToValidate"
                 class="form-control"
                 placeholder="B1"
                 type="text"
                 autocomplete="off"
+                @input="evt => bingoNumberToValidate = evt.target.value"
                 @keyup.esc.prevent="clearValue('esc')"
                 @keyup.enter.prevent="clearValue('enter')"
               >
