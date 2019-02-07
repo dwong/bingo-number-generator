@@ -44,6 +44,17 @@
 <script>
 export default {
   name: 'App',
+  metaInfo: {
+    title: 'Generate',
+    titleTemplate: '%s | Bingo Number Generator',
+    meta: [
+      { charset: 'utf-8' },
+      { description: 'Bingo number/value generator in a mobile-friendly app' },
+      { author: 'Derek Wong' },
+      { keywords: 'bingo generator, bingo number generator, bingo value generator' },
+      { viewport: 'width=device-width, initial-scale=1.0' }
+    ]
+  },
   data () {
     return {
       bingoNumbers: [],

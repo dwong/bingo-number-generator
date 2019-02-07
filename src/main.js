@@ -5,6 +5,9 @@ import App from './App'
 import router from './router'
 import 'bootstrap'
 import VueAnalytics from 'vue-analytics'
+import Meta from 'vue-meta'
+
+Vue.use(Meta)
 
 Vue.use(VueAnalytics, {
   id: 'UA-132460060-1',

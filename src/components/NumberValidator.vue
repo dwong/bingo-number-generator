@@ -52,6 +52,9 @@ Array.prototype.findIndex||Object.defineProperty(Array.prototype,"findIndex",{va
 
 export default {
   name: 'NumberValidator',
+  metaInfo: {
+    title: 'Validate'
+  },
   props: {
     bingoNumbers: {
       type: Array,
