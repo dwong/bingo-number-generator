@@ -13,7 +13,8 @@ Vue.use(VueAnalytics, {
   id: 'UA-132460060-1',
   router,
   debug: {
-    enabled: process.env.NODE_ENV !== 'production'
+    enabled: process.env.NODE_ENV !== 'production',
+    sendHitTask: process.env.NODE_ENV === 'production'
   },
   commands: {
     trackGenerate () {
