@@ -44,21 +44,38 @@
 <script>
 export default {
   name: 'App',
-  metaInfo: {
-    title: 'Generate',
-    titleTemplate: '%s | Bingo Number Generator',
-    meta: [
-      { charset: 'utf-8' },
-      { description: 'Bingo number/value generator in a mobile-friendly app' },
-      { author: 'Derek Wong' },
-      { keywords: 'bingo generator, bingo number generator, bingo value generator' },
-      { viewport: 'width=device-width, initial-scale=1.0' }
-    ]
-  },
   data () {
     return {
+      description: 'Bingo number generator in a mobile-friendly app for ' +
+                   'bingo callers',
       bingoNumbers: [],
       bingoRegex: /^(\D)\s*(\d+)?$/i
+    }
+  },
+  metaInfo () {
+    return {
+      title: 'Generate Numbers',
+      titleTemplate: '%s | Number Generator For Bingo Callers',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'description', content: this.description },
+        { name: 'og:description', content: this.description },
+        { name: 'author', content: 'Derek Wong' },
+        { name: 'robots', content: 'noarchive' },
+        {
+          name: 'keywords',
+          content: 'bingo generator, bingogenerator, bingo number generator, ' +
+            'bingonumbergenerator, bingo value generator, ' +
+            'bingo caller, bingo caller online, ' +
+            'free bingo number generator, free bingo generator' +
+            'bingo number generator online, free bingo number generator online, ' +
+            'bingo generator online'
+        },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1.0'
+        }
+      ]
     }
   },
   computed: {
