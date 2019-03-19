@@ -46,8 +46,10 @@ export default {
   name: 'App',
   data () {
     return {
-      description: 'Bingo number generator in a mobile-friendly app for ' +
-                   'bingo callers',
+      description: 'Bingo Number Generator is a free, mobile-friendly web app' +
+                   ' for bingo callers.  Generate random bingo values for ' +
+                   'traditional 1-75 bingo and use the Validate tab to ' +
+                   'verify winners!',
       bingoNumbers: [],
       bingoRegex: /^(\D)\s*(\d+)?$/i
     }
