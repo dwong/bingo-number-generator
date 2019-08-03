@@ -11,8 +11,10 @@
           class="material-icons md-48 red m-auto"
         >thumb_down</i>
       </div>
-      <div class="col-6 col-sm-8 col-md-5">
-        <form>
+      <div class="col-6 col-sm-8 col-md-6">
+        <form
+          @submit.prevent="saveValidatedValue"
+        >
           <div class="form-group">
             <label
               for="bingo-number"
@@ -27,7 +29,6 @@
                 autocomplete="off"
                 @input="evt => bingoNumberToValidate = evt.target.value"
                 @keyup.esc.prevent="clearValue('esc')"
-                @keyup.enter.prevent="clearValue('enter')"
               >
               <button
                 v-show="clearable"
@@ -37,9 +38,32 @@
               ><i class="material-icons">clear</i></button>
             </div>
           </div>
+          <div
+            v-show="validatedValues.length > 0"
+          >
+            <div
+              v-for="(val, index) in validatedValues"
+              :key="val"
+              class="chip"
+            >{{ val }}
+              <span
+                class="closebtn"
+                @click="removeValidatedValue(index)"
+              >
+                &times;
+              </span>
+            </div>
+          </div>
         </form>
       </div>
     </div>
+    <button
+      v-show="validatedValues.length > 0"
+      class="btn btn-info btn-lg btn-outline-info"
+      @click="clearValidatedValues"
+    >
+      Clear All
+    </button>
   </div>
 </template>
 
@@ -72,7 +96,8 @@ export default {
   data () {
     return {
       bingoNumberToValidate: '',
-      validLetters: ['B', 'I', 'N', 'G', 'O']
+      validLetters: ['B', 'I', 'N', 'G', 'O'],
+      validatedValues: []
     }
   },
   computed: {
@@ -134,12 +159,13 @@ export default {
         return foundIndex >= 0 ? this.validLetters[foundIndex] : null
       }
     },
-    isValidBingoNumber () {
+    normalizedBingoNumber () {
       const letter = this.normalizedLetter
       const number = this.numberFromBingoNumber
-      return letter != null &&
-        number != null &&
-        this.bingoNumbers.indexOf(`${letter}${number}`) >= 0
+      return letter != null && number != null ? `${letter}${number}` : null
+    },
+    isValidBingoNumber () {
+      return this.bingoNumbers.indexOf(this.normalizedBingoNumber) >= 0
     }
   },
   methods: {
@@ -168,6 +194,19 @@ export default {
       if (this.$ga) {
         this.$ga.event('User Action', 'Input', 'Clear', intVal)
       }
+    },
+    saveValidatedValue () {
+      if (this.isValidBingoNumber &&
+          this.validatedValues.indexOf(this.normalizedBingoNumber) === -1) {
+        this.validatedValues.push(this.normalizedBingoNumber)
+      }
+      this.clearValue()
+    },
+    removeValidatedValue (index) {
+      this.validatedValues.splice(index, 1)
+    },
+    clearValidatedValues () {
+      this.validatedValues = []
     }
   }
 }
@@ -201,5 +240,26 @@ export default {
 }
 input[type=search]::-webkit-search-cancel-button {
     -webkit-appearance: searchfield-cancel-button;
+}
+.chip {
+  display: inline-block;
+  padding: 0 15px;
+  margin: 2px 5px;
+  height: 40px;
+  font-size: 18px;
+  line-height: 40px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+.chip .closebtn {
+  padding-left: 10px;
+  color: #888;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+.chip .closebtn:hover {
+  color: #000;
 }
 </style>
